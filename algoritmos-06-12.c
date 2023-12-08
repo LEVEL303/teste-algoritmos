@@ -10,7 +10,7 @@ int main() {
 
     for(contadorLinhas = 0; contadorLinhas < linhas; contadorLinhas++) {
         for(contadorColunas = 0; contadorColunas < colunas; contadorColunas++) {
-            matriz[contadorLinhas][contadorColunas] = contadorLinhas * 5 + contadorColunas;
+            matriz[contadorLinhas][contadorColunas] = contadorLinhas * colunas + contadorColunas;
         }
     }
 
