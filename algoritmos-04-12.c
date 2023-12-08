@@ -31,4 +31,5 @@ int main() {
     printf("===================\n");
     int resultado = calcula(8, 2, soma);
     printf("Resultado: %d", resultado);
+    return 0;
 }
