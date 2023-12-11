@@ -30,7 +30,7 @@ void imprime(Aluno * estudante) {
 }
 
 int main() {
-    Aluno *estudante = (struct aluno*) malloc(sizeof(Aluno));
+    Aluno *estudante = (Aluno*) malloc(sizeof(Aluno));
     if(estudante == NULL) {
         exit(1);
     }
