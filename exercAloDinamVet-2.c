@@ -10,23 +10,20 @@ int main() {
     float porcentagemAprovados;
     
     printf("Digite o numero de questoes da prova:\n");
-    scanf("%d", &NQuestoes);
-    while(getchar() != '\n');
+    scanf(" %d", &NQuestoes);
     char *gabarito = (char *) malloc(NQuestoes * sizeof(char));
 
     printf("Digite o gabarito da prova:\n");
     for(contadorVet = 0; contadorVet < NQuestoes; contadorVet++) {
         printf("Questao %d:\n", contadorVet+1);
-        scanf("%c", &gabarito[contadorVet]);
-        while(getchar() != '\n');
+        scanf(" %c", &gabarito[contadorVet]);
     }
 
     for(contador = 1; contador <= 10; contador++) {
         printf("Digite as respostas da %d prova:\n", contador);
         for(contadorVet = 0; contadorVet < NQuestoes; contadorVet++) {
             printf("Questao %d:\n", contadorVet+1);
-            scanf("%c", &resposta);
-            while(getchar() != '\n');
+            scanf(" %c", &resposta);
             if(resposta == gabarito[contadorVet]) {
                 nota += 10/NQuestoes;
             }

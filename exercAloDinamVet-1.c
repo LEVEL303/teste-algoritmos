@@ -12,14 +12,10 @@ int main() {
     
     for(contador = 0; contador < Npessoas; contador++) {
         printf("Digite o seu sexo (m/f):\n");
-        scanf("%c", &sexo[contador]);
-
-        while (getchar() != '\n');
+        scanf(" %c", &sexo[contador]);
 
         printf("Digite a sua opiniao sobre o novo produto (gostou/nao gostou):\n");
-        scanf("%c", &opiniao[contador]);
-
-        while (getchar() != '\n');
+        scanf(" %c", &opiniao[contador]);
     }
 
     for(contador = 0; contador < Npessoas; contador++) {
