@@ -16,10 +16,10 @@ void preencher(Funcionario *empregado, int nFuncionarios) {
         scanf(" %[^\n]s", empregado[contador].nome);
 
         printf("Salario:\n");
-        scanf(" %f", &empregado[contador].salario);
+        scanf("%f", &empregado[contador].salario);
 
         printf("Identificador:\n");
-        scanf(" %d", &empregado[contador].identificador);
+        scanf("%d", &empregado[contador].identificador);
         
         printf("Cargo:\n");
         scanf(" %[^\n]s", empregado[contador].cargo);
@@ -36,8 +36,8 @@ void imprimir(Funcionario *empregado, int nFuncionarios) {
 }
 
 void alterarSalario(Funcionario *empregado, int indice) {
-    printf("Novo salario:\n");
-    scanf(" %f", &empregado[indice].salario);
+    printf("Novo salario de %s:\n", empregado[indice].nome);
+    scanf("%f", &empregado[indice].salario);
 }
 
 void maiorMenor(Funcionario *empregado, int nFuncionarios) {
