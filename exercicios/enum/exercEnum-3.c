@@ -24,18 +24,26 @@ typedef struct data {
 void lerData(Data * data) {
     printf("Informe o dia:\n");
     scanf("%d", &data->dia);
-    printf("Informe o numero do mes:\n");
+    printf("Informe o numero do mes (1-12):\n");
     int mes;
     do {
-    scanf("%d")
-    } while(mes < 1 && mes > 12);
+        scanf("%d", &mes);
+        if(mes < JANEIRO || mes > DEZEMBRO) {
+            printf("Mes invalido! Tente novamente:\n");
+        }
+    } while(mes < JANEIRO || mes > DEZEMBRO);
+    data->mes = mes;
+    printf("Informe o ano:\n");
+    scanf("%d", &data->ano);
 }
 
 void imprimirData(Data * data) {
-    printf("%d/%d/%d\n", data->dia, data->mes, data->ano);
+    printf("%02d/%02d/%d\n", data->dia, data->mes, data->ano);
 }
 
 int main() {
     Data data;
-
+    lerData(&data);
+    imprimirData(&data);
+    return 0;
 }
