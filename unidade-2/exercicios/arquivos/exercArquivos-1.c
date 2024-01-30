@@ -20,33 +20,57 @@ float calcularMedia(float * notas) {
 }
 
 int main() {
-    FILE * arq_entrada;
+    FILE * arq_entrada = fopen("entrada.txt", "rt");
+    FILE * arq_saida = fopen("saida.txt", "wt");
     Aluno * alunos = (Aluno *) malloc(QUANT_ALUNOS * sizeof(Aluno));
     int i, j;
 
-    for (i = 0; i < QUANT_ALUNOS; i++) {
-        alunos[i].notas = (float *) malloc(QUANT_NOTAS * sizeof(float));
+    if(alunos == NULL) {
+        printf("Erro na alocacao de memoria!\n");
+        exit(1);
     }
 
-    arq_entrada = fopen("entrada.txt", "rt");
+    for (i = 0; i < QUANT_ALUNOS; i++) {
+        alunos[i].notas = (float *) malloc(QUANT_NOTAS * sizeof(float));
+        if(alunos[i].notas == NULL) {
+            printf("Erro na alocacao de memoria!\n");
+            exit(1);
+        }
+    }
+    
     if (arq_entrada == NULL) {
-        printf("Erro ao abrir arquivo!\n");
+        printf("Erro ao abrir arquivo 'entrada.txt'!\n");
         exit(1);
     } else {
-        printf("Arquivo aberto com sucesso.\n");
+        printf("Arquivo 'entrada.txt' aberto com sucesso.\n");
+    }
+
+    if (arq_saida == NULL) {
+        printf("Erro ao abrir arquivo 'saida.txt'!\n");
+        exit(1);
+    } else {
+        printf("Arquivo 'saida.txt' aberto com sucesso.\n");
     }
 
     for (i = 0; i < QUANT_ALUNOS; i++) {
         fscanf(arq_entrada, "%s", alunos[i].nome);
-        printf("%s\n", alunos[i].nome);
         for (j = 0; j < QUANT_NOTAS; j++) {
             fscanf(arq_entrada, "%f", &alunos[i].notas[j]);
-            printf("%.1f\n", alunos[i].notas[j]);
         }
     }
 
+    for (i = 0; i < QUANT_ALUNOS; i++) {
+        alunos[i].media = calcularMedia(alunos[i].notas);
+        
+        fprintf(arq_saida, "%s %.1f %s\n", alunos[i].nome, alunos[i].media, 
+        alunos[i].media >= 7.0 ? "Aprovado" : "Reprovado");
+    }
+
     if (fclose(arq_entrada) == 0) {
-        printf("Arquivo fechado com sucesso.\n");
+        printf("Arquivo 'entrada.txt' fechado com sucesso.\n");
+    }
+    if (fclose(arq_saida) == 0) {
+        printf("Arquivo 'saida.txt' fechado com sucesso.\n");
     }
 
     for (i = 0; i < QUANT_ALUNOS; i++) {
