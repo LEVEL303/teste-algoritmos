@@ -3,6 +3,8 @@
 
 #define QUANT_ALUNOS 3
 #define QUANT_NOTAS 3
+#define NOME_ARQUIVO_ENTRADA "entrada-1.txt"
+#define NOME_ARQUIVO_SAIDA "saida-1.txt"
 
 typedef struct aluno {
     char nome[80];
@@ -20,8 +22,8 @@ float calcularMedia(float * notas) {
 }
 
 int main() {
-    FILE * arq_entrada = fopen("entrada.txt", "rt");
-    FILE * arq_saida = fopen("saida.txt", "wt");
+    FILE * arq_entrada = fopen(NOME_ARQUIVO_ENTRADA, "rt");
+    FILE * arq_saida = fopen(NOME_ARQUIVO_SAIDA, "wt");
     Aluno * alunos = (Aluno *) malloc(QUANT_ALUNOS * sizeof(Aluno));
     int i, j;
 
@@ -39,17 +41,17 @@ int main() {
     }
     
     if (arq_entrada == NULL) {
-        printf("Erro ao abrir arquivo 'entrada.txt'!\n");
+        printf("Erro ao abrir arquivo '%s'!\n", NOME_ARQUIVO_ENTRADA);
         exit(1);
     } else {
-        printf("Arquivo 'entrada.txt' aberto com sucesso.\n");
+        printf("Arquivo '%s' aberto com sucesso.\n", NOME_ARQUIVO_ENTRADA);
     }
 
     if (arq_saida == NULL) {
-        printf("Erro ao abrir arquivo 'saida.txt'!\n");
+        printf("Erro ao abrir arquivo '%s'!\n", NOME_ARQUIVO_SAIDA);
         exit(1);
     } else {
-        printf("Arquivo 'saida.txt' aberto com sucesso.\n");
+        printf("Arquivo '%s' aberto com sucesso.\n", NOME_ARQUIVO_SAIDA);
     }
 
     for (i = 0; i < QUANT_ALUNOS; i++) {
@@ -67,10 +69,10 @@ int main() {
     }
 
     if (fclose(arq_entrada) == 0) {
-        printf("Arquivo 'entrada.txt' fechado com sucesso.\n");
+        printf("Arquivo '%s' fechado com sucesso.\n", NOME_ARQUIVO_ENTRADA);
     }
     if (fclose(arq_saida) == 0) {
-        printf("Arquivo 'saida.txt' fechado com sucesso.\n");
+        printf("Arquivo '%s' fechado com sucesso.\n", NOME_ARQUIVO_SAIDA);
     }
 
     for (i = 0; i < QUANT_ALUNOS; i++) {
