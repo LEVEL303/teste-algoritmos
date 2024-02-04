@@ -20,8 +20,9 @@ float divisao(int a, int b) {
     }
 }
 
-int potenciacao(int a, int b) {
-    int index, resultado = 1;
+float potenciacao(int a, int b) {
+    int index;
+    float resultado = 1.0;
     if(b >= 0) {
         for(index = 1; index <= b; index++) {
             resultado = resultado * a;

@@ -12,7 +12,7 @@ int main() {
     printf("%d - %d = %d\n", a, b, subtracao(a, b));
     printf("%d * %d = %d\n", a, b, multiplicacao(a, b));
     printf("%d / %d = %.2f\n", a, b, divisao(a, b));
-    printf("%d ^ %d = %d\n", a, b, potenciacao(a, b));
+    printf("%d ^ %d = %.2f\n", a, b, potenciacao(a, b));
 
     return 0;
 }
