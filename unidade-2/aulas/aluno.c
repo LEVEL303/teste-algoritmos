@@ -12,7 +12,7 @@ struct aluno {
 Aluno * recebeDados() {
     Aluno * estudante = (Aluno *) malloc(sizeof(Aluno));
     if(estudante == NULL) {
-        printf("Sem memoria!");
+        printf("Sem memoria!\n");
         exit(1);
     } 
     printf("Informe o nome do aluno:\n");
@@ -23,6 +23,20 @@ Aluno * recebeDados() {
     scanf("%f", &estudante->IRA);
     
     return estudante;
+}
+
+Aluno ** recebeDadosAlunos(int quant_estudantes) {
+    int index;
+    Aluno ** estudantes = (Aluno **) malloc(quant_estudantes * sizeof(Aluno *));
+    if(estudante == NULL) {
+        printf("Sem memoria!\n");
+        exit(1);
+    }
+
+    for(index = 0; index < quant_estudantes; index++) {
+        printf("==== Aluno %d ====\n", index+)
+        estudantes[index] = recebeDados();
+    }
 }
 
 void exibirDados(Aluno * estudante) {
