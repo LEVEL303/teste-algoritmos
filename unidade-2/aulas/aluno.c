@@ -25,22 +25,35 @@ Aluno * recebeDados() {
     return estudante;
 }
 
-Aluno ** recebeDadosAlunos(int quant_estudantes) {
+Aluno * recebeDadosVariosAlunos(int quant_estudantes) {
+    Aluno * estudantes = (Aluno *) malloc(quant_estudantes * sizeof(Aluno));
     int index;
-    Aluno ** estudantes = (Aluno **) malloc(quant_estudantes * sizeof(Aluno *));
-    if(estudante == NULL) {
+
+    if(estudantes == NULL) {
         printf("Sem memoria!\n");
         exit(1);
     }
 
     for(index = 0; index < quant_estudantes; index++) {
-        printf("==== Aluno %d ====\n", index+)
-        estudantes[index] = recebeDados();
+        printf("===== Aluno %d =====\n", index + 1);
+        printf("Informe o nome do aluno:\n");
+        scanf(" %[^\n]s", estudantes[index].nome);
+        printf("Informe a matricula do aluno:\n");
+        scanf("%d", &estudantes[index].matricula);
+        printf("Informe o IRA do aluno:\n");
+        scanf("%f", &estudantes[index].IRA);
     }
+
+    return estudantes;
 }
 
-void exibirDados(Aluno * estudante) {
-    printf("Nome: %s \nMatricula: %d \nIRA: %f\n", estudante->nome, estudante->matricula, estudante->IRA);
+void exibirDados(Aluno * estudante, int quant_estudantes) {
+    int index;
+    for(index = 0; index < quant_estudantes; index++) {
+        printf("=====================================\n");
+        printf("Nome: %s \nMatricula: %d \nIRA: %f\n",
+        estudante[index].nome, estudante[index].matricula, estudante[index].IRA);
+    }
 }
 
 void liberarMemoria(Aluno * estudante) {
