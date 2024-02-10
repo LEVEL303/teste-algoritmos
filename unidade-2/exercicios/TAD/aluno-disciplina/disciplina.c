@@ -1,5 +1,5 @@
 #include "disciplina.h"
-#include <stdlib>
+#include <stdlib.h>
 #include <string.h>
 
 struct disciplina {
@@ -15,7 +15,7 @@ Disciplina * cria_disciplina(char nome[], int codigo) {
     strcpy(disciplina->nome, nome);
     disciplina->codigo = codigo;
     
-    return desciplina; 
+    return disciplina; 
 }
 
 void exclui_disciplina(Disciplina * disciplina) {

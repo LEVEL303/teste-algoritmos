@@ -24,12 +24,12 @@ Aluno * cira_aluno(char nome[], int matricula) {
 void matricula_disciplina(Aluno * aluno, Disciplina * disciplina) {
     if(aluno->num_disciplinas < 10) {
         int index;
-        for(index = 0; index < num_disciplinas; index++) {
-            if(aluno->disciplinas[index].codigo == disciplina->codigo) {
+        for(index = 0; index < aluno->num_disciplinas; index++) {
+            if(aluno->disciplinas[index]->codigo == disciplina->codigo) {
                 return;
             }
         }
-        aluno->disciplinas[num_dicsiplinas] = disciplina;
+        aluno->disciplinas[aluno->num_disciplinas] = disciplina;
         aluno->num_disciplinas++;
     }
 }
