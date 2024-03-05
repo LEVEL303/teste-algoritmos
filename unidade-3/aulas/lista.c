@@ -36,7 +36,7 @@ int lista_vazia(Lista * lista) {
     }
 }
 
-Lista busca(Lista * lista, int valor) {
+Lista * busca_elemento(Lista * lista, int valor) {
     Lista * contador;
     for(contador = lista; contador != NULL; contador = contador->prox_elemento) {
         if(contador->info == valor) {
@@ -46,4 +46,19 @@ Lista busca(Lista * lista, int valor) {
     return NULL;
 }
 
-// função pra retirar um elemento da lista
+void deleta_elemento(Lista * lista, Lista * no) {
+    if(lista != NULL && no != NULL) {
+        Lista * contador;
+        Lista * no_anterior = NULL;
+
+        for(contador = lista; contador != no; contador = contador->prox_elemento) {
+            no_anterior = contador;
+        }
+        if(no_anterior != NULL) {
+            no_anterior->prox_elemento = no->prox_elemento;
+        } else {
+            lista = no->prox_elemento;
+        }
+        free(no);
+    }
+}
