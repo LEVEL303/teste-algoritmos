@@ -63,3 +63,42 @@ Lista * deleta_elemento(Lista * lista, Lista * no) {
         return lista;
     }
 }
+
+int maiores(Lista * lista, int valor) {
+    int elementos_maiores = 0;
+    Lista * contador;
+
+    for(contador = lista; contador != NULL; contador = contador->prox_elemento) {
+        if(contador->info > valor) {
+            elementos_maiores++;
+        }
+    }
+    return elementos_maiores;
+}
+
+Lista * ultimo(Lista * lista) {
+    Lista * contador = lista;
+
+    while(contador->prox_elemento != NULL) {
+        contador = contador->prox_elemento;
+    }
+    return contador;
+}
+
+Lista * concatena(Lista * lista_1, Lista * lista_2) {
+    Lista * ultimo_elemento = ultimo(lista_1);
+    ultimo_elemento->prox_elemento = lista_2;
+    return lista_1;
+}
+
+Lista * retira_valor(Lista * lista, int valor) {
+    Lista * contador;
+    
+    for(contador = lista; contador != NULL; contador = contador->prox_elemento) {
+        if(contador->info == valor) {
+            lista = deleta_elemento(lista, contador);
+        }
+    }
+
+    return lista;
+}
