@@ -13,8 +13,8 @@ void imprime_lista(Lista * lista);
 /* Função que vereifica se a lista esta vazia (retorna 1 para vazia e 0 para não vazia) */
 int lista_vazia(Lista * lista);
 
-/* Função que busca um elemento na lista,
- se for encontrado, retornara o endereço do elemento, se não, retornara NULL */
+/* Função que busca um elemento na lista, se for encontrado, retornará o endereço do primeiro 
+ elemento que tiver o valor correspondente, se não, retornará NULL */
 Lista * busca_elemento(Lista * lista, int valor);
 
 /* Função que deleta um elemento da lista e retonar o endereço do seu primeiro elemento,
