@@ -30,5 +30,6 @@ Lista * ultimo(Lista * lista);
 /* Função que concatena duas listas */
 Lista * concatena(Lista * lista_1, Lista * lista_2);
 
-/* Função que deleta todas as ocorrências de um valor, especificado, da lista e retorna o endereço da lista atualizada */
+/* Função que remove todas as ocorrências de um valor específico da lista
+ e retorna o endereço da lista atualizada */
 Lista * retira_valor(Lista * lista, int valor);

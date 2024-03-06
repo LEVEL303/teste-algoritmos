@@ -92,13 +92,18 @@ Lista * concatena(Lista * lista_1, Lista * lista_2) {
 }
 
 Lista * retira_valor(Lista * lista, int valor) {
-    Lista * contador;
-    
-    for(contador = lista; contador != NULL; contador = contador->prox_elemento) {
+    Lista * contador = lista;
+    Lista * no;
+
+    while(contador != NULL) {
         if(contador->info == valor) {
-            lista = deleta_elemento(lista, contador);
+            no = contador;
+            contador = contador->prox_elemento;
+            lista = deleta_elemento(lista, no);
+        } else {
+            contador = contador->prox_elemento;
         }
     }
-
+    
     return lista;
 }
