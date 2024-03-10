@@ -56,27 +56,27 @@ ListaDE * buscaNoLDE(ListaDE * lista, int valor) {
 }
 
 ListaDE * retiraValorLDE(ListaDE * lista, int valor) {
-    if(lista != NULL) {
-        ListaDE * contador = lista;
-        ListaDE * no;
+    ListaDE * contador = lista;
+    ListaDE * no;
 
-        while(contador != NULL) {
-            if(contador->info == valor) {
-                if(contador->no_anterior == NULL && contador->prox_no == NULL) {
-                    lista = NULL;
-                } else if(contador->no_anterior == NULL) {
-                    contador->prox_no->no_anterior = contador->no_anterior;
-                    lista = contador->prox_no;
-                } else if(contador->prox_no == NULL) {
-                    contador->no_anterior->prox_no = contador->prox_no;
-                } else {
-                    contador->no_anterior->prox_no = contador->prox_no;
-                    contador->prox_no->no_anterior = contador->no_anterior;
-                }
-                no = contador;
-                contador = contador->prox_no;
-                free(no);
+    while(contador != NULL) {
+        if(contador->info == valor) {
+            if(contador->no_anterior == NULL && contador->prox_no == NULL) {
+                lista = NULL;
+            } else if(contador->no_anterior == NULL) {
+                contador->prox_no->no_anterior = contador->no_anterior;
+                lista = contador->prox_no;
+            } else if(contador->prox_no == NULL) {
+                contador->no_anterior->prox_no = contador->prox_no;
+            } else {
+                contador->no_anterior->prox_no = contador->prox_no;
+                contador->prox_no->no_anterior = contador->no_anterior;
             }
+            no = contador;
+            contador = contador->prox_no;
+            free(no);
+        } else {
+            contador = contador->prox_no;
         }
     }
     return lista;
