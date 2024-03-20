@@ -51,7 +51,7 @@ float pilha_pop(Pilha * pilha) {
     No * no;
     if(pilha_vazia(pilha)) {
         printf("A pilha esta vazia!\n");
-        exit(1);
+        return 0;
     }
     valor = pilha->topo->valor;
     no = pilha->topo;
